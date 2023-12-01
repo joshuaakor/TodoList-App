@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import {Route, Routes} from 'react-router-dom';
+import NewTodos from './pages/NewTodo';
+import AllTodos from './pages/AllTodos';
+import PendingTodos from './pages/PendingTodos';
+import DoneTodos from './pages/DoneTodos';
+import Layout from './components/layouts/Layout';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   return (
+    <div>
+    <Layout>
+    <Routes>
+      <Route path='/' element={<AllTodos/>}/>
+      <Route path='/new-todos' element={<NewTodos/>}/>
+      <Route path='/pending-todos' element={<PendingTodos/>}/>
+      <Route path='/done-todos' element={<DoneTodos/>}/>
+    </Routes>
+    </Layout>
+  </div>
+   );
 }
 
 export default App;
